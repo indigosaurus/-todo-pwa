@@ -113,7 +113,7 @@ function App(props) {
  //addTask
   function addTask(name) {
     const id = "todo-" + nanoid();
-    const newTask = { id: id, name: name, completed: false, location: {latitude:"##", longitude:"##", error:"##"}};
+    const newTask = { id: id, name: name, completed: false, location: {latitude:"##", longitude:"##", error:"##"} };
     setLastInsertedId(id);
     setTasks([...tasks, newTask]);
     // const newTask = { id: `todo-${nanoid()}`, name, completed: false };
