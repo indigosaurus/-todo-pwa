@@ -12,13 +12,9 @@ const FILTER_MAP = {
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 function App(props) {
-  const [filter, setFilter] = useState("All");
-  const [tasks, setTasks] = usePersistedState('tasks',[]); //useState(props.tasks);
-  const [filter, setFilter] = useState('All');
-  const [lastInsertedId, setLastInsertedId] = useState('';)
   //geoFindMe
   function geoFindMe() {
-    console.log("geoFindMe", lastInsertedID);
+    console.log("geoFindMe", lastInsertedId);
     function success(position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
@@ -36,6 +32,11 @@ function App(props) {
         navigator.geolocation.getCurrentPosition(success, error);
       }
   }
+
+  const [tasks, setTasks] = useState('tasks',[]); //useState(props.tasks);
+  const [filter, setFilter] = useState('All');
+  const [lastInsertedId, setLastInsertedId] = useState('');
+
  //toggleTaskCompleted
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map((task) => {
@@ -130,14 +131,14 @@ function App(props) {
       <div className="filters btn-group stack-exception">
         {filterList}
         </div>
-      <h2 id="list-heading" tabIndex="-1" ref={listHeadingRef}>{headingText}</h2>
-      <ul
+      <h2 id="list-heading" tabIndex="-1" >{headingText}</h2>
+      <li
         role="list"
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading"
       >
         {taskList}
-      </ul>
+      </li>
     </div>
   );
 }

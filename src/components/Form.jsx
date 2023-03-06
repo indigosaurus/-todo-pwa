@@ -14,6 +14,8 @@ function Form(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    props.addTask(name);
+    setName("");
     if (!name.trim()) {
       return;
     }
@@ -24,11 +26,6 @@ function Form(props) {
 
   function handleChange(e) {
     setName(e.target.value);
-  }
-  function handleSubmit(e) {
-    e.preventDefault();
-    props.addTask(name);
-    setName("");
   }
 
   return (
