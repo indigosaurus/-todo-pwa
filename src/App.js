@@ -1,4 +1,4 @@
-import React, { useEffect, useState, usePersistedState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "./components/Form";
 import FilterButton from "./components/FilterButton";
 import Todo from "./components/Todo";
@@ -33,7 +33,7 @@ function App(props) {
       }
   }
 
-  const [tasks, setTasks] = usePersistedState('tasks',[]); //useState(props.tasks);
+  const [tasks, setTasks] = useState('tasks',[]); //useState(props.tasks);
   const [filter, setFilter] = useState('All');
   const [lastInsertedId, setLastInsertedId] = useState('');
 
@@ -102,7 +102,7 @@ function App(props) {
         editTask={editTask}
       />
     ));
-  //filter 
+  //filter  by name
   const filterList = FILTER_NAMES.map((name) => (
     <FilterButton
       key={name}
